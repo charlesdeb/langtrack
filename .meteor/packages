@@ -25,3 +25,5 @@ useraccounts:core
 npm-bcrypt@0.8.7
 accounts-ui
 accounts-password
+reactive-dict
+twbs:bootstrap
