@@ -1,6 +1,5 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
-import { AccountsTemplates } from 'meteor/useraccounts:core';
 import { Meteor } from 'meteor/meteor';
 import { Session } from 'meteor/session'
 
@@ -12,9 +11,16 @@ import '../../ui/layouts/app-body.js';
 exposed = FlowRouter.group({});
 
 exposed.route("/login", {
-  name: "loginOrSignUp",
+  name: "login",
   action: function () {
-    BlazeLayout.render("App_body", { main: 'LoginOrSignUp' });
+    BlazeLayout.render("App_body", { main: 'Login' });
+  }
+});
+
+exposed.route("/signup", {
+  name: "signup",
+  action: function () {
+    BlazeLayout.render("App_body", { main: 'SignUp' });
   }
 });
 
@@ -28,7 +34,7 @@ loggedIn = FlowRouter.group({
       if (route.route.name !== 'login') {
         Session.set('redirectAfterLogin', route.path);
       }
-      FlowRouter.go("loginOrSignUp");
+      FlowRouter.go("login");
     }
   }]
 })
@@ -36,13 +42,6 @@ loggedIn = FlowRouter.group({
 loggedIn.route("/", {
   name: "App.home",
   action: function () {
-    BlazeLayout.render("App_body", { main: 'kdfhdkgd' });
+    BlazeLayout.render("App_body", { main: 'Main' });
   }
 });
-
-// FlowRouter.route('/', {
-//   name: 'App.home',
-//   action() {
-//     BlazeLayout.render('App_body', { main: 'app_rootRedirector' });
-//   },
-// });

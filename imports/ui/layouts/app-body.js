@@ -4,8 +4,9 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import '../components/header.js';
 import '../components/loading.js';
-import '../pages/loginOrSignUp.js';
-
+import '../pages/login.js';
+import '../pages/sign-up.js';
+import '../pages/main.js';
 
 const CONNECTION_ISSUE_TIMEOUT = 5000;
 
