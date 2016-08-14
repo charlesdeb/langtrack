@@ -5,7 +5,7 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 // export default () => {
-UserSchema = {};
+const UserSchema = {};
 
 UserSchema.UserProfile = new SimpleSchema({
   firstName: {
@@ -101,6 +101,3 @@ UserSchema.User = new SimpleSchema({
 Meteor.users.attachSchema(UserSchema.User);
 
 export {UserSchema};
-// export const Schema.User;
-// export const Schema.UserProfile;
-// }

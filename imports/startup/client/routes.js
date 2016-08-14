@@ -8,7 +8,7 @@ import '../../ui/layouts/app-body.js';
 
 // now for the routes
 // These are publically exposed routes
-exposed = FlowRouter.group({});
+const exposed = FlowRouter.group({});
 
 exposed.route("/login", {
   name: "login",
@@ -32,7 +32,7 @@ exposed.route("/bye", {
 });
 
 // These are routes only available to logged-in users
-loggedIn = FlowRouter.group({
+const loggedIn = FlowRouter.group({
   triggersEnter: [function () {
     if (Meteor.loggingIn() || Meteor.userId()) {
       // do nothing

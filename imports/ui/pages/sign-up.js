@@ -12,16 +12,18 @@ Template.SignUp.events({
     // being bypassed in this implementation.
     event.preventDefault();
     // construct user object
-    email = $('[name=email]').val();
-    displayName = $('[name=display-name]').val();
-    password = $('[name=password]').val();
-    profile = { displayName: displayName };
-    user = { email: email, password: password, profile: profile };
+    const email = $('[name=email]').val();
+    const displayName = $('[name=display-name]').val();
+    const password = $('[name=password]').val();
+    const profile = { displayName: displayName };
+    const user = { email: email, password: password, profile: profile };
     // console.log(user);
     Accounts.createUser(
       user,
       function (error) {
-        console.log(error);
+        if (error) {
+          console.log(error);
+        }
       });
   }
 });
