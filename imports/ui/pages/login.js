@@ -1,12 +1,12 @@
 import './login.html';
 
 Template.Login.events({
-  'click #submit': function (event) {
+  'submit form': function (event) {
     event.preventDefault();
-    console.log(event);
-    $('#loginEmail')
-    emailVar = $('#loginEmail').val();
-    passwordVar = $('#loginPassword').val();
-    Meteor.loginWithPassword(emailVar, passwordVar);
+    email = $('[name=email]').val();
+    password = $('[name=password]').val();
+    Meteor.loginWithPassword(email, password, function (error) {
+      console.log(error);
+    });
   }
 });

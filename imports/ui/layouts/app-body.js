@@ -7,6 +7,7 @@ import '../components/loading.js';
 import '../pages/login.js';
 import '../pages/sign-up.js';
 import '../pages/main.js';
+import '../pages/bye.js';
 
 const CONNECTION_ISSUE_TIMEOUT = 5000;
 

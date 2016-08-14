@@ -24,6 +24,13 @@ exposed.route("/signup", {
   }
 });
 
+exposed.route("/bye", {
+  name: "bye",
+  action: function () {
+    BlazeLayout.render("App_body", { main: 'Bye' });
+  }
+});
+
 // These are routes only available to logged-in users
 loggedIn = FlowRouter.group({
   triggersEnter: [function () {

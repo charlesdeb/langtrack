@@ -2,16 +2,19 @@
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4>Sign-up</h4>
+      <p>or
+        <a href="{{ pathFor 'login'}}">log in</a>
+      </p>
     </div>
     <div class="panel-body">
       <form>
         <div class="form-group">
           <label for="signUpEmail">Email</label>
-          <input type="email" id="email" class="form-control" placeholder="e.g. john@example.com">
+          <input type="email" name="email" class="form-control" placeholder="e.g. john@example.com">
         </div>
         <div class="form-group">
           <label for="signUpName">Display Name</label>
-          <input type="text" id="display-name" class="form-control" placeholder="e.g. jonnos">
+          <input type="text" name="display-name" class="form-control" placeholder="e.g. jonnos">
         </div>
         <div class="form-group">
           <label for="password">Password</label>

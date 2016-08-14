@@ -1,3 +1,6 @@
 <template name="Header">
+  {{#if currentUser }}
+    <button name="logout" id='logout' class="btn btn-default pull-right">Logout</button>
+  {{/if}}
   <h1>Language Tracker</h1>
 </template>
