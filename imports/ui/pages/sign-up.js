@@ -1,9 +1,10 @@
 import './sign-up.html';
 
 import { Accounts } from 'meteor/accounts-base';
-import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
 
 import { UserSchema } from '../../api/users/users.js';
+import { insertUser } from '../../api/users/methods.js';
 
 Template.SignUp.events({
   'submit form': function (event) {
@@ -15,16 +16,18 @@ Template.SignUp.events({
     const email = $('[name=email]').val();
     const displayName = $('[name=display-name]').val();
     const password = $('[name=password]').val();
-    const profile = { displayName: displayName };
-    const user = { email: email, password: password, profile: profile };
-    // console.log(user);
-    Accounts.createUser(
-      user,
-      function (error) {
-        if (error) {
-          console.log(error);
-        }
-      });
+    const user = { email: email, password: password, displayName: displayName };
+    console.log(user);
+
+    // Call the Method
+    insertUser.call(user, (err, res) => {
+      if (err) {
+        console.log(err);
+      } else {
+        // success!
+        Meteor.loginWithPassword(email, password);
+      }
+    });
   }
 });
 

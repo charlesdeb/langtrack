@@ -28,3 +28,4 @@ twbs:bootstrap
 arillo:flow-router-helpers
 session
 aldeed:collection2
+mdg:validated-method

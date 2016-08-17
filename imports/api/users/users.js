@@ -3,6 +3,7 @@
 
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Meteor } from 'meteor/meteor';
 
 // export default () => {
 const UserSchema = {};
@@ -101,14 +102,3 @@ UserSchema.User = new SimpleSchema({
 Meteor.users.attachSchema(UserSchema.User);
 
 export {UserSchema};
-
-export const insertUser = new ValidatedMethod({
-  name: 'langtrack.user.insert',
-  validate: UserSchema.validator(),
-  run({user}) {
-    // Make sure the user is logged in before inserting a task
-    if (!this.userId) {
-      throw new Meteor.Error('not-authorized');
-    }
-  }
-});
