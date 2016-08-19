@@ -6,6 +6,12 @@ import { Template } from 'meteor/templating';
 import { UserSchema } from '../../api/users/users.js';
 import { insertUser } from '../../api/users/methods.js';
 
+
+Template.SignUp.onCreated(function () {
+  const title = "Sign-up for LangTrack";
+  DocHead.setTitle(title);
+});
+
 Template.SignUp.events({
   'submit form': function (event) {
     // TODO - this should all go server side into a method of some sort.

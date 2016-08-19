@@ -1,8 +1,13 @@
 {
   "name": "language-tracker",
+  "version": "0.0.1",
+  "description": "Tracks the hours a language student spends per week learning a new language",
+  "author": "Charles de Bueger",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "chimp-watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",
+    "chimp-test": "chimp --mocha --path=tests"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",

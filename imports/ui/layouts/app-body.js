@@ -2,7 +2,7 @@ import './app-body.html';
 
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import '../components/header.js';
+import '../components/page-header.js';
 import '../components/loading.js';
 import '../pages/login.js';
 import '../pages/sign-up.js';
@@ -49,4 +49,4 @@ Template.App_body.helpers({
 
     return true;
   },
-})
+});

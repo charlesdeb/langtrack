@@ -1,5 +1,10 @@
 import './login.html';
 
+Template.Login.onCreated(function () {
+  const title = "Login to LangTrack";
+  DocHead.setTitle(title);
+});
+
 Template.Login.events({
   'submit form': function (event) {
     event.preventDefault();

@@ -11,24 +11,10 @@ export const insertUser = new ValidatedMethod({
   }).validator(),
   run(user) {
 
-    //    // Make sure the user is logged in before inserting a task
-    //    if (!this.userId) {
-    //      throw new Meteor.Error('not-authorized');
-    //    }
-    console.log('in insertUser, user: ')
-    console.log(user)
+    console.log('in insertUser, user: ');
+    console.log(user);
     const email = user.email;
     const password = user.password;
-    // if (Meteor.isClient) {
-    //   Accounts.createUser(
-    //     { email, password },
-    //     function (error) {
-    //       if (error) {
-    //         console.log(error);
-    //         throw new Meteor.Error('langtrack.user.insert.createuser', "Couldn't create user", error.error);
-    //       }
-    //     });
-    // } else {
     userId = Accounts.createUser({ email, password });
     console.log("userId: " + userId);
 

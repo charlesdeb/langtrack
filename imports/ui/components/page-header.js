@@ -1,12 +1,12 @@
-import './header.html';
+import './page-header.html';
 
 import { Meteor } from 'meteor/meteor';
 
-Template.Header.events({
+Template.PageHeader.events({
   // 'button#logout': function() {
   'click #logout': function (events) {
     Meteor.logout(function () {
       FlowRouter.go('bye');
     });
   }
-})
+});
