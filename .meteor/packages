@@ -30,3 +30,7 @@ session
 aldeed:collection2
 mdg:validated-method
 kadira:dochead
+tmeasday:acceptance-test-driver
+xolvio:cleaner
+practicalmeteor:mocha
+xolvio:backdoor

@@ -12,7 +12,7 @@ describe('routing to non-login pages', function () {
     pages.forEach(page => {
       const url = "http://localhost:3000" + page;
       browser.url(url);
-      console.log(browser.status());
+      // console.log(browser.status());
       assert.equal(browser.getTitle(), LT.titles[page]);
     });
 
