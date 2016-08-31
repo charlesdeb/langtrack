@@ -1,5 +1,12 @@
 // import { generateData } from '../imports/api/generate-data.app-tests.js';
 
+// const userInTestContext = server.execute(function() {
+//   // this function runs in the Meteor context
+//   return Meteor.user();
+// });
+
+// var userInTestContext = server.execute(getMeteorUser);
+
 const logout = () => {
   browser.url("localhost:3000/");
   if (browser.element('button[name=logout]'))
@@ -23,7 +30,6 @@ describe('signing up @watch', function () {
   describe('with good data', function () {
     beforeEach(function () {
       console.log('in beforeEach:');
-      server.call('user');
       // console.log(results);
       // console.log(results);
       // reset database
@@ -42,12 +48,30 @@ describe('signing up @watch', function () {
       browser.setValue('[name="password"]', 's3cr3t!');
       browser.click('input[type=submit]');
     });
+    afterEach(function () {
+      console.log("after each");
+      const userInTestContext = server.execute(function () {  
+        // this function runs in the Meteor context
+        // return Meteor.user();
+        return Meteor.user();
+      });
+      console.log(userInTestContext);
+
+    })
 
     it('logs user into system', function () {
-      var result = server.execute(getMeteorUser);
-      console.log(result);
-      result = server.execute(getMeteorUserId);
-      console.log(result);
+      console.log("running test");
+      var userInTestContext = server.execute(function () {
+        // this function runs in the Meteor context
+        // return Meteor.user();
+        return Meteor.user();
+      });
+      console.log(userInTestContext);
+
+      // var result = server.execute(getMeteorUser);
+      // console.log(result);
+      // result = server.execute(getMeteorUserId);
+      // console.log(result);
       // result = server.call('user');
       // console.log(result);
     });
