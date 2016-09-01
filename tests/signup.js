@@ -1,31 +1,3 @@
-// import { generateData } from '../imports/api/generate-data.app-tests.js';
-
-// const userInTestContext = server.execute(function() {
-//   // this function runs in the Meteor context
-//   return Meteor.user();
-// });
-
-// var userInTestContext = server.execute(getMeteorUser);
-
-const logout = () => {
-  browser.url("localhost:3000/");
-  if (browser.element('button[name=logout]'))
-    browser.click('button[name=logout]');
-};
-
-var getMeteorUser = function () {
-  return Meteor.user();
-};
-
-var getMeteorUserId = function () {
-  return Meteor.userId();
-};
-
-// var cleanDatabase = function () {
-//   import { resetDatabase } from 'meteor/xolvio:cleaner';
-//   resetDatabase();
-// };
-
 describe('signing up @watch', function () {
   describe('with good data', function () {
     beforeEach(function () {
