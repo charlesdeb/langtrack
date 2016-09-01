@@ -11,18 +11,17 @@ export const insertUser = new ValidatedMethod({
   }).validator(),
   run(user) {
 
-    console.log('in insertUser, user: ');
     console.log(user);
     const email = user.email;
     const password = user.password;
     userId = Accounts.createUser({ email, password });
-    console.log("userId: " + userId);
+    // console.log("userId: " + userId);
 
     if (userId) {
-      console.log('updating the profile for : ' + userId);
+      // console.log('updating the profile for : ' + userId);
       Meteor.users.update(
         { _id: userId },
-        { $set: { "profile.displayName": user.displayName } },
+        { $set: { displayName: user.displayName } },
         function (error, _id) {
           if (error) {
             console.log(error);

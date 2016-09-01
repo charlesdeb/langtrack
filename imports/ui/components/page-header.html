@@ -1,6 +1,6 @@
 <template name="PageHeader">
   {{#if currentUser }}
-    <button name="logout" id='logout' class="btn btn-default pull-right">Logout</button>
+    <a href="{{ pathFor 'logout' }}" name="logout" id='logout' class="btn btn-default pull-right" role="button">Logout</a>
   {{/if}}
   <h1>LangTrack</h1>
 </template>

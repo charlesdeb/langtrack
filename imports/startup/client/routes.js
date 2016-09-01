@@ -1,7 +1,7 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { Meteor } from 'meteor/meteor';
-import { Session } from 'meteor/session'
+import { Session } from 'meteor/session';
 
 // Import to load these templates
 import '../../ui/layouts/app-body.js';
@@ -44,11 +44,20 @@ const loggedIn = FlowRouter.group({
       FlowRouter.go("login");
     }
   }]
-})
+});
 
 loggedIn.route("/", {
   name: "App.home",
   action: function () {
     BlazeLayout.render("App_body", { main: 'Main' });
+  }
+});
+
+loggedIn.route("/logout", {
+  name: "logout",
+  action: function () {
+    Meteor.logout(function () {
+      FlowRouter.go(FlowRouter.path("bye"));
+    });
   }
 });

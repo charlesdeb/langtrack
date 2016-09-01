@@ -1,5 +1,5 @@
 {
-  "name": "language-tracker",
+  "name": "langtrack",
   "version": "0.0.1",
   "description": "Tracks the hours a language student spends per week learning a new language",
   "author": "Charles de Bueger",
