@@ -20,10 +20,10 @@ Template.SignUp.events({
     event.preventDefault();
     // construct user object
     const email = $('[name=email]').val();
-    const displayName = $('[name=display-name]').val();
+    // const displayName = $('[name=display-name]').val();
     const password = $('[name=password]').val();
-    const user = { email: email, password: password, displayName: displayName };
-    console.log(user);
+    const user = { email: email, password: password };
+    // console.log(user);
 
     // Call the Method
     insertUser.call(user, (err, res) => {
@@ -38,12 +38,12 @@ Template.SignUp.events({
 });
 
 Accounts.onLogin(function () {
-  redirect = Session.get('redirectAfterLogin')
+  redirect = Session.get('redirectAfterLogin');
   if (redirect) {
     if (redirect !== '/login')
       FlowRouter.go(redirect);
   }
   else {
-    FlowRouter.go('App.home');
+    FlowRouter.go('App.settings');
   }
-})
+});

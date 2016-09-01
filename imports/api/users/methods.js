@@ -6,8 +6,8 @@ export const insertUser = new ValidatedMethod({
   name: 'langtrack.user.insert',
   validate: new SimpleSchema({
     email: { type: String },
-    password: { type: String },
-    displayName: { type: String }
+    password: { type: String }
+    // displayName: { type: String }
   }).validator(),
   run(user) {
 
@@ -17,18 +17,17 @@ export const insertUser = new ValidatedMethod({
     userId = Accounts.createUser({ email, password });
     // console.log("userId: " + userId);
 
-    if (userId) {
-      // console.log('updating the profile for : ' + userId);
-      Meteor.users.update(
-        { _id: userId },
-        { $set: { displayName: user.displayName } },
-        function (error, _id) {
-          if (error) {
-            console.log(error);
-            throw new Meteor.Error('langtrack.user.insert.updateProfile', "Couldn't update profile", error.error);
-          }
-        });
-    }
-    // };
+    // if (userId) {
+    //   // console.log('updating the profile for : ' + userId);
+    //   Meteor.users.update(
+    //     { _id: userId },
+    //     { $set: { displayName: user.displayName } },
+    //     function (error, _id) {
+    //       if (error) {
+    //         console.log(error);
+    //         throw new Meteor.Error('langtrack.user.insert.updateProfile', "Couldn't update profile", error.error);
+    //       }
+    //     });
+    // }
   }
 });

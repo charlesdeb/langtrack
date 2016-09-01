@@ -61,3 +61,10 @@ loggedIn.route("/logout", {
     });
   }
 });
+
+loggedIn.route("/settings", {
+  name: "App.settings",
+  action: function () {
+    BlazeLayout.render("App_body", { main: 'Settings' });
+  }
+});

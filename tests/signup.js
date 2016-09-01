@@ -4,7 +4,7 @@ describe('signing up @watch', function () {
       // console.log('in beforeEach:');
       server.call('logout');
       server.execute(function () {
-        Package['xolvio:cleaner'].resetDatabase();
+        Package['xolvio:cleaner'].resetDatabase();        
       });
 
       // browser
@@ -22,26 +22,29 @@ describe('signing up @watch', function () {
 
       browser.url("localhost:3000/signup");
       browser.setValue('[name="email"]', "test@examples.com");
-      browser.setValue('[name="display-name"]', 'chuckles!');
+      // browser.setValue('[name="display-name"]', 'chuckles!');
       browser.setValue('[name="password"]', 's3cr3t!');
       browser.click('input[type=submit]');
-      browser.waitForVisible('a#logout');
+      browser.waitForVisible('a#logout'); 
       // console.log("logged in!"); 
     });
 
     it('logs user into system', function () {
-      // console.log("running test");
-      var userInTestContext = server.execute(function () {
-        // this function runs in the Meteor context
-        return Meteor.user();
-      });
-      // console.log(userInTestContext);
-    });
-
-    it('creates right data in user profile');
-    it('directs user to home page', function () {
-      var logoutButton = browser.waitForExist('a#logout');
+            var logoutButton = browser.waitForExist('a#logout');
       expect(logoutButton).to.equal(true);
+
+      // // console.log("running test");
+      // var userInTestContext = server.execute(function () {
+      //   // this function runs in the Meteor context
+      //   return Meteor.user();
+      // });
+      // // console.log(userInTestContext);
+    });
+ 
+    it('creates right data in user profile');
+    it('directs user to a get details page', function () {
+      const title = browser.getTitle();
+      expect(title).to.equal("Settings");
     });
   });
 });
