@@ -1,0 +1,34 @@
+<template name="FirstTimeSettings">
+    {{ >quickForm id='first-time-settings-form' schema=UserSchema.User doc=currentUser type='update' fields='displayName, learningLanguage, weeklyTarget, onLeaderBoard'}}
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Settings</h4>
+    </div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label for="signUpEmail">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="e.g. john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="signUpName">Display Name</label>
+          <input type="text" name="display-name" class="form-control" placeholder="e.g. jonnos">
+        </div>
+        <!--<div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control">
+        </div>-->
+        <div class="form-group">
+          <label for="weekly-target">Weekly Hourly Target</label>
+          <input type="number" name="weekly-target" class="form-control" value="{{ defaultWeeklyHourlyTarget }}">
+        </div>
+        <div class="form-group">
+          <label for="language">Language</label>
+          <input type="text" name="language" class="form-control" placeholder="e.g. Turkish" value="{{ defaultLanguage }}">
+        </div>
+        <input type="submit" value="Save changes" class="btn btn-default pull-right">
+      </form>
+    </div>
+  </div>
+</template>

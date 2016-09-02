@@ -22,7 +22,7 @@ describe('signing up @watch', function () {
 
       browser.url("localhost:3000/signup");
       browser.setValue('[name="email"]', "test@examples.com");
-      // browser.setValue('[name="display-name"]', 'chuckles!');
+      browser.setValue('[name="display-name"]', 'chuckles');
       browser.setValue('[name="password"]', 's3cr3t!');
       browser.click('input[type=submit]');
       browser.waitForVisible('a#logout'); 

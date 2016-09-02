@@ -5,23 +5,9 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Meteor } from 'meteor/meteor';
 
-// export default () => {
-const UserSchema = {};
+import { LT } from '../globals.js';
 
-UserSchema.UserProfile = new SimpleSchema({
-  firstName: {
-    type: String,
-    optional: true
-  },
-  lastName: {
-    type: String,
-    optional: true
-  },
-  language: {
-    type: String,
-    optional: false
-  }
-});
+const UserSchema = {};
 
 UserSchema.User = new SimpleSchema({
   username: {
@@ -57,10 +43,28 @@ UserSchema.User = new SimpleSchema({
   createdAt: {
     type: Date
   },
-  someField: {
+  displayName: {
     type: String,
     optional: false,
-    defaultValue: 'phooey'
+    label: 'Display Name'
+  },
+  learningLanguage: {
+    type: String,
+    optional: false,
+    label: 'Language you are learning',
+    defaultValue: LT.defaults.learningLanguage
+  },
+  weeklyTarget: {
+    type: Number,
+    optional: false,
+    label: 'Weekly target (hours)',
+    defaultValue: LT.defaults.weeklyTarget
+  },
+  onLeaderBoard: {
+    type: Boolean,
+    optional: false,
+    label: 'Appear on leaderboard?',
+    defaultValue: true
   },
   profile: {
     type: UserSchema.UserProfile,

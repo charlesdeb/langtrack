@@ -6,4 +6,9 @@ LT.titles =
     "/signup": "Sign-up for LangTrack",
   };
 
+  LT.defaults = {
+    weeklyTarget: 30,
+    learningLanguage: "Turkish"
+  };
+
 export {LT};

@@ -62,9 +62,9 @@ loggedIn.route("/logout", {
   }
 });
 
-loggedIn.route("/settings", {
-  name: "App.settings",
+loggedIn.route("/firstTimeSettings", {
+  name: "App.firstTimeSettings",
   action: function () {
-    BlazeLayout.render("App_body", { main: 'Settings' });
+    BlazeLayout.render("App_body", { main: 'FirstTimeSettings' });
   }
 });

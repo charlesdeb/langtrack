@@ -1,7 +1,7 @@
 import {LT} from '../imports/api/globals.js';
 
 describe('routing to non-login pages', function () {
-  it('has correct page titles @watch', function () {
+  it('has correct page titles', function () { 
     const pages = ['/login', '/signup'];
 
     pages.forEach(page => {

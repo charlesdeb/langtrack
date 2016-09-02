@@ -14,15 +14,12 @@ Template.SignUp.onCreated(function () {
 
 Template.SignUp.events({
   'submit form': function (event) {
-    // TODO - this should all go server side into a method of some sort.
-    // It's not actually working since the SImpleSchema validation is 
-    // being bypassed in this implementation.
     event.preventDefault();
     // construct user object
     const email = $('[name=email]').val();
-    // const displayName = $('[name=display-name]').val();
+    const displayName = $('[name=display-name]').val();
     const password = $('[name=password]').val();
-    const user = { email: email, password: password };
+    const user = { email: email, password: password, displayName: displayName };
     // console.log(user);
 
     // Call the Method
@@ -44,6 +41,6 @@ Accounts.onLogin(function () {
       FlowRouter.go(redirect);
   }
   else {
-    FlowRouter.go('App.settings');
+    FlowRouter.go('App.firstTimeSettings');
   }
 });
