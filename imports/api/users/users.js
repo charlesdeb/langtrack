@@ -7,9 +7,10 @@ import { Meteor } from 'meteor/meteor';
 
 import { LT } from '../globals.js';
 
-const UserSchema = {};
+// const UserSchema = {};
+const User = {};
 
-UserSchema.User = new SimpleSchema({
+User.schema = new SimpleSchema({
   username: {
     type: String,
     // For accounts-password, either emails or username is required, but not both. It is OK to make this
@@ -34,12 +35,6 @@ UserSchema.User = new SimpleSchema({
   "emails.$.verified": {
     type: Boolean
   },
-  // Use this registered_emails field if you are using splendido:meteor-accounts-emails-field / splendido:meteor-accounts-meld
-  // registered_emails: {
-  //   type: [Object],
-  //   optional: true,
-  //   blackbox: true
-  // },
   createdAt: {
     type: Date
   },
@@ -65,10 +60,6 @@ UserSchema.User = new SimpleSchema({
     optional: false,
     label: 'Appear on leaderboard?',
     defaultValue: true
-  },
-  profile: {
-    type: UserSchema.UserProfile,
-    optional: false
   },
   // Make sure this services field is in your schema if you're using any of the accounts packages
   services: {
@@ -103,6 +94,7 @@ UserSchema.User = new SimpleSchema({
   }
 });
 
-Meteor.users.attachSchema(UserSchema.User);
+Meteor.users.attachSchema(User.schema);
 
-export {UserSchema};
+// export { UserSchema };
+export { User };

@@ -1,6 +1,7 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Template } from 'meteor/templating';
 
-import { UserSchema } from '../../api/users/users.js';
+import { User } from '../../api/users/users.js';
 import './first-time-settings.html';
 
 Template.FirstTimeSettings.onCreated(function () {
@@ -10,16 +11,22 @@ Template.FirstTimeSettings.onCreated(function () {
 
   // get data
   var self = this;
-  self.autorun(function() {
-    var postId = FlowRouter.getParam('postId');
-    self.subscribe('singlePost', postId);  
+  self.autorun(function () {
+    self.subscribe('theCurrentUser');
+    console.log('subscribed');
+    // console.log("User.schema:");
+    // console.log(User.schema);
   });
 });
 
 Template.FirstTimeSettings.helpers({
-  currentUser: function(){
-    console.log('looking for user:');
-    console.log(Meteor.user());
-    return Meteor.user();
+  user() {
+    console.log("looking up user");
+    if (Meteor.userId()) {
+      // const theUser = Meteor.user();
+      const theUser = Meteor.users.find({ _id: Meteor.userId() });
+        console.log(theUser);
+      return theUser;
+    }
   }
 });

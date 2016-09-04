@@ -1,4 +1,4 @@
-describe('signing up @watch', function () {
+describe('signing up', function () {
   describe('with good data', function () {
     beforeEach(function () {
       // console.log('in beforeEach:');
@@ -29,16 +29,16 @@ describe('signing up @watch', function () {
       // console.log("logged in!"); 
     });
 
-    // it('logs user into system 2  @watch', function () {
-    //   const userInTestContext = server.execute(function () {
-    //     console.log("from console");
-    //     console.log(Meteor.user()); // **** check this in the browser console
-    //     // console.log(Meteor); // **** check this in the browser console
-    //     return Meteor.user();
-    //   });
-    //   console.log("from test runner");
-    //   console.log(userInTestContext);  // this line prints "null" to the console
-    // });
+    it('logs user into system 2  @watch', function () {
+      const userInTestContext = server.execute(function () {
+        console.log("from console");
+        console.log(Meteor.user()); // **** check this in the browser console
+        // console.log(Meteor); // **** check this in the browser console
+        return Meteor.user();
+      });
+      console.log("from test runner");
+      console.log(userInTestContext);  // this line prints "null" to the console
+    });
 
     it('logs user into system', function () {
       var logoutButton = browser.waitForExist('a#logout');

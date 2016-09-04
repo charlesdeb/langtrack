@@ -1,7 +1,14 @@
 <template name="FirstTimeSettings">
-    {{ >quickForm id='first-time-settings-form' schema=UserSchema.User doc=currentUser type='update' fields='displayName, learningLanguage, weeklyTarget, onLeaderBoard'}}
+  <!--{{ >quickForm id='first-time-settings-form' collection=user doc=user type='update' fields='displayName, learningLanguage, weeklyTarget, onLeaderBoard'}}-->
 
-    <div class="panel panel-default">
+  {{ >quickForm id='first-time-settings-form' schema=Meteor.users doc=user }}
+
+firsttime settings
+{{ User.schema }}
+
+  <p>email: {{ user.displayName }}</p>
+
+  <!--<div class="panel panel-default">
     <div class="panel-heading">
       <h4>Settings</h4>
     </div>
@@ -14,11 +21,13 @@
         <div class="form-group">
           <label for="signUpName">Display Name</label>
           <input type="text" name="display-name" class="form-control" placeholder="e.g. jonnos">
-        </div>
+        </div>-->
         <!--<div class="form-group">
           <label for="password">Password</label>
           <input type="password" name="password" class="form-control">
-        </div>-->
+        </div>
+        -->
+<!--
         <div class="form-group">
           <label for="weekly-target">Weekly Hourly Target</label>
           <input type="number" name="weekly-target" class="form-control" value="{{ defaultWeeklyHourlyTarget }}">
@@ -31,4 +40,5 @@
       </form>
     </div>
   </div>
+  -->
 </template>
