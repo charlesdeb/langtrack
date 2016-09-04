@@ -16,7 +16,6 @@ Template.FirstTimeSettings.onCreated(function () {
   });
 });
 
-
 Template.FirstTimeSettings.helpers({
   currentUser: function(){
     console.log('looking for user:');
